@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "social-network-engagement-bot"
+version = "0.1.0"
+description = ""
+authors = ["mohamad <ahmadi@vollabor.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.11"
+uvicorn = "^0.34.0"
+sqlalchemy = "^2.0.39"
+psycopg2-binary = "^2.9.10"
+pydantic = "^2.10.6"
+httpx = "^0.28.1"
+python-telegram-bot = "^22.0"
+alembic = "^1.15.1"
+python-dotenv = "^1.0.1"
+pytest = "^8.3.5"
+pytest-asyncio = "^0.25.3"
+black = "^25.1.0"
+pydantic-settings = "^2.8.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: social_engagement
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://mohamad:123456@localhost:5432/social
+      INSTAGRAM_ACCESS_TOKEN: "INSTAGRAM_ACCESS_TOKEN"
+      INSTAGRAM_USER_ID: "INSTAGRAM_USER_ID"
+      TELEGRAM_BOT_TOKEN: "TELEGRAM_BOT_TOKEN"
+      TELEGRAM_CHAT_ID: "TELEGRAM_CHAT_ID"
+      BASIC_AUTH_USERNAME: "admin"
+      BASIC_AUTH_PASSWORD: "admin"
+      MILESTONE_THRESHOLD: "1000"
+      MOCK: "False"
+
+volumes:
+  pgdata:
